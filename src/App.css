@@ -35,7 +35,7 @@ body{
   background-color: #ffff;
   padding: 20px;
   width:49%;
-  height: 350px;
+  height:450px;
    border-radius:10px;
    position: relative;
 }
@@ -78,7 +78,18 @@ body{
 .del-alert{
   font-weight: bold;
 }
-
+.nom-full-alert{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#cfb86b ;
+  font-size: 30px;
+  height: 150px;
+  padding: 20px;
+  width:49%;
+  margin-right: 20px;
+  border-radius: 20px;
+}
 @media screen and (max-width:1024px){
   body{
     background:linear-gradient(#000000, #000000);
@@ -105,6 +116,13 @@ body{
   .nominations-sec{
    margin-top:20px;
   
+  }
+  .nom-full-alert{
+    width: 100%;
+    font-size: 20px;
+    height:auto;
+    padding:10px;
+    font-family: 'Poppins';
   }
   
 .movies-list{

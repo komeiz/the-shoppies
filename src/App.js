@@ -36,10 +36,10 @@ function App() {
   };
 
   const nominateMovieBtn = (item) => {
-    if (nominationsArray.length === 5) {
-      alert("You can't have more than 5 nominations");
-      return;
-    }
+    // if (nominationsArray.length === 5) {
+    //   alert("You can't have more than 5 nominations");
+    //   return;
+    // }
 
     let filteredArray = nominationsArray.filter(
       (obj) => obj.imdbID === item.imdbID
@@ -107,13 +107,13 @@ function App() {
           </div>
         )}
 
-        {nominationsArray.length === 5 && (
+        {/* {nominationsArray.length === 5 && (
           <div class="alert-banner">
             <p>
               Your nominated movies list is complete and cannot be more than 5!
             </p>
           </div>
-        )}
+        )} */}
 
         {showView && (
           <div class="alert-banner">
@@ -123,31 +123,40 @@ function App() {
 
         {!showView && seachResultName !== "" && (
           <div className="results-nominees-sec">
-            <div className=" srch-rels-sec ">
-              <h4 className="text-primary">
-                Results for {`${seachResultName}`}
-              </h4>
-              <ul className="movies-list">
-                {resultArray.map((item, index) => (
-                  <li className="d-flex flex-row" key={index}>
-                    <div className="movie-title-year-sec">
-                      <span>
-                        {item.Title} {`(${item.Year})`}
-                      </span>
-                    </div>
-                    <div className="nominate-btns-sec">
-                      <button
-                        disabled={nomIDs.includes(item.imdbID) ? true : false}
-                        className="btn btn-primary"
-                        onClick={() => nominateMovieBtn(item)}
-                      >
-                        Nominate
-                      </button>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {nominationsArray.length < 5 ? (
+              <div className=" srch-rels-sec ">
+                <h4 className="text-primary">
+                  Results for {`${seachResultName}`}
+                </h4>
+                <ul className="movies-list">
+                  {resultArray.map((item, index) => (
+                    <li className="d-flex flex-row" key={index}>
+                      <div className="movie-title-year-sec">
+                        <span>
+                          {item.Title} {`(${item.Year})`}
+                        </span>
+                      </div>
+                      <div className="nominate-btns-sec">
+                        <button
+                          disabled={nomIDs.includes(item.imdbID) ? true : false}
+                          className="btn btn-primary"
+                          onClick={() => nominateMovieBtn(item)}
+                        >
+                          Nominate
+                        </button>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : (
+              <div class="nom-full-alert">
+                <p>
+                  Your nominated movies list is complete and cannot be more than
+                  5!
+                </p>
+              </div>
+            )}
 
             <div className=" nominations-sec">
               {showAlert && (
