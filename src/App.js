@@ -173,7 +173,7 @@ function App() {
                     </div>
                   </li>
                 ))}
-                {nominationsArray.length == 0 && (
+                {nominationsArray.length === 0 && (
                   <div class="empty-alert ">
                     <p>Your list is empty!</p>
                   </div>
